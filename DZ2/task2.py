@@ -22,10 +22,21 @@ print(f"наименьший четный элемент списка {min(minEv
 A.append(None)
 A.append(None)
 A.append(None)
-count= 0
+print(A)
+
 noneList = []
-while(None in A):
-    noneList+= None
-    A.remove(None)
+
+for a in range(len(A)):
+    if(A[a]== None):
+        noneList.append(A[a])
+
+finishList = noneList + sorted(list(filter(lambda x: (x != None),A)))
+
+print(f"Преобразовать список так, чтобы сначала шли нулевые элементы, а затем все остальные\n{finishList}")
+
+
+
+
+
 
 
