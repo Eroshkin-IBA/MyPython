@@ -93,7 +93,7 @@ for N in range(1000, 5001, 1000):
     # print(C)
     t6 = datetime.datetime.now()
     y0.append((t6 - t5).total_seconds())
-    print("Шейкерная сортировка   " + str(N) + "   заняла   " + str((t2 - t1).total_seconds()) + "c")
+    print("Шейкерная сортировка   " + str(N) + "   заняла   " + str((t6 - t5).total_seconds()) + "c")
 
     t3 = datetime.datetime.now()
     QuickSort(B, 0, len(B) - 1)
