@@ -1,3 +1,6 @@
+import datetime
+
+
 class Car:
     def __init__(self, id, mark, model, carYear, color, coast, number):
         try:
@@ -28,6 +31,10 @@ class Car:
         except:
             print("Incorrect year")
             return
+
+
+
+
 
     def getColor(self):
         return self.__color
@@ -89,6 +96,25 @@ class Car:
                 print(f"{x.getMark()} год {x.getCarYear()}")
         print("===========================")
 
+    @classmethod
+    def changePrice(cls, x):
+        cls.coast += cls.coast * (x/100)
+
+    def __str__(self):
+        return f"{self.__model}, {self.__mark}, {self.__carYear}, {self.__coast}"
+
+    def __add__(self,other):
+        return self.__coast + other.getCoast()
+
+    def __getattr__(self, item):
+        if item == "age":
+            return datetime.datetime.now().year - self.__carYear
+        else:
+            print(f"Атрибута {item} не существует")
+
+    def __hash__(self):
+        return hash((self.__carYear,self.__coast,self.__mark,self.__model))
+
 
 
 
@@ -104,7 +130,7 @@ car4 = Car(12,"opel", "benz", 2007, "Black", 25_000, "mb145-98")
 car5 = Car(12,"fiat", "benz", 2015, "Black", 25_000, "mb145-98")
 car6 = Car(12,"siat", "benz", 2018, "Black", 25_000, "mb145-98")
 car7 = Car(12,"BMW", "benz", 2019, "Black", 25_000, "mb145-98")
-car8 = Car(12,"bugatti", "benz", 2025, "Black", 25_000, "mb145-98")
+car8 = Car(12,"bugatti", "benz", 2020, "Black", 25_000, "mb145-98")
 
 
 carList.append(car1)
@@ -124,6 +150,12 @@ Car.findByYear(carList, 2015)
 
 Car.compareYear(car1,car2)
 
+
+print(f"реализация __str__: {car1}")
+print(f"реализация __add__: \n Цена двух автомобилей \"{car1}\" и \"{car2}\" = {car1 + car2}$$$")
+print(f"Возвраст машины {car1} = {car1.age} лет")
+
+print(f"hash {car1} = {hash(car1)}")
 
 
 
