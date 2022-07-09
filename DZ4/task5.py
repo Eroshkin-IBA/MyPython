@@ -1,17 +1,19 @@
 class Car:
     def __init__(self, id, mark, model, carYear, color, coast, number):
-        if (carYear < 1886 or carYear > 2022):
-            raise Exception("Incorrect year")
-        else:
-            self.__id = id
-            self.__mark = mark
-            self.__model = model
+        try:
+            if (carYear < 1886 or carYear > 2022):
+                raise Exception("Incorrect year")
+            else:
+                self.__id = id
+                self.__mark = mark
+                self.__model = model
 
-            self.__carYear = carYear
-            self.__color = color
-            self.__coast = coast
-            self.__number = number
-
+                self.__carYear = carYear
+                self.__color = color
+                self.__coast = coast
+                self.__number = number
+        except:
+            print("Incorrect year")
     def getId(self):
         return self.__id
     def getMark(self):
@@ -19,10 +21,14 @@ class Car:
     def getModel(self):
         return self.__model
     def getCarYear(self):
-        if(self.__carYear < 1886):
-            raise Exception("Incorrect year")
+        try:
+            if(self.__carYear < 1886):
+                raise Exception("Incorrect year")
+            return self.__carYear
+        except:
+            print("Incorrect year")
             return
-        return self.__carYear
+
     def getColor(self):
         return self.__color
     def getCoast(self):
@@ -98,7 +104,7 @@ car4 = Car(12,"opel", "benz", 2007, "Black", 25_000, "mb145-98")
 car5 = Car(12,"fiat", "benz", 2015, "Black", 25_000, "mb145-98")
 car6 = Car(12,"siat", "benz", 2018, "Black", 25_000, "mb145-98")
 car7 = Car(12,"BMW", "benz", 2019, "Black", 25_000, "mb145-98")
-car8 = Car(12,"bugatti", "benz", 2022, "Black", 25_000, "mb145-98")
+car8 = Car(12,"bugatti", "benz", 2025, "Black", 25_000, "mb145-98")
 
 
 carList.append(car1)

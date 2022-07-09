@@ -58,7 +58,7 @@ y0 = []
 y1 = []
 y2 = []
 
-for N in range(1000, 5001, 1000):
+for N in range(1000, 15001, 1000):
     x.append(N)
     min = 1
     max = N
